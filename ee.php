@@ -4,7 +4,13 @@
 $nama = $_POST['nama'];
 $email = $_POST['email'];
 $pertanyaan = $_POST['pertanyaan'];
-$header = "Dari: $nama" . "\r\n" . " Email : $email";
+
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+// More headers
+$headers .= "From: $nama" . "\r\n";
+$headers .= "Cc: $email" . "\r\n";
 
 if (mail("budiprastyo34@gmail.com","Pertanyaan Seputar SMA Muhammadiyah 4 Kendal",$pertanyaan,$header )) {
 	echo "<script>alert('Pesan Terkirim')</script>";
